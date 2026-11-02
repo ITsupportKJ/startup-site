@@ -7,8 +7,8 @@ export default function Hero() {
         </p>
         <h1>We build websites and turn your data into decisions.</h1>
         <p className="hero-sub">
-          From fast, modern websites to dashboards that make your numbers make
-          sense, we help businesses grow with technology.
+          We design fast, modern websites and turn your sales and customer data
+          into clear reports you can act on.
         </p>
         <div className="hero-actions">
           <a href="#contact" className="btn btn-primary">
