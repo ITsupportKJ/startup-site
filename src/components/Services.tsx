@@ -1,42 +1,51 @@
-const services = [
-  {
-    icon: "💻",
-    title: "Web Development",
-    text: "Responsive, fast websites and web apps built with modern tools like React.",
-  },
-  {
-    icon: "📊",
-    title: "Data Analysis",
-    text: "We clean, analyse and interpret your data to uncover patterns and opportunities.",
-  },
-  {
-    icon: "📈",
-    title: "Dashboards & Reporting",
-    text: "Interactive dashboards that give you a live view of what matters in your business.",
-  },
-  {
-    icon: "⚙️",
-    title: "Automation & Custom Software",
-    text: "Tools that remove repetitive work and connect the systems you already use.",
-  },
-];
+import { useState } from "react";
+import { services } from "../data/services";
+import Mock from "./Mock";
 
 export default function Services() {
+  const [active, setActive] = useState(0);
+  const s = services[active];
+
   return (
-    <section id="services">
+    <section id="services" className="section section-white">
       <div className="container">
-        <h2>What we do</h2>
-        <p className="section-sub">
-          Practical technology services tailored to your business.
-        </p>
-        <div className="grid">
-          {services.map((s) => (
-            <div className="card" key={s.title}>
-              <div className="icon">{s.icon}</div>
-              <h3>{s.title}</h3>
-              <p>{s.text}</p>
+        <div className="section-head">
+          <h2 className="display">Design first. Then everything it runs on.</h2>
+          <p className="section-sub">
+            Use one service or combine them. Everything fits together because
+            the same team plans and builds it.
+          </p>
+        </div>
+
+        <div className="svc-grid">
+          <ul className="svc-list">
+            {services.map((x, i) => (
+              <li key={x.id}>
+                <button
+                  type="button"
+                  className={`svc-btn${i === active ? " on" : ""}`}
+                  aria-pressed={i === active}
+                  onClick={() => setActive(i)}
+                  onMouseEnter={() => setActive(i)}
+                  onFocus={() => setActive(i)}
+                >
+                  {x.name}
+                </button>
+              </li>
+            ))}
+          </ul>
+
+          <div className="svc-panel" aria-live="polite">
+            <div className={`stage stage-${s.tone}`}>
+              <Mock kind={s.mock} />
             </div>
-          ))}
+            <p className="svc-summary">{s.summary}</p>
+            <ul className="chips">
+              {s.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </section>
