@@ -4,10 +4,11 @@ import { site } from "../config";
 
 const links = [
   { href: "#services", label: "Services" },
+  { href: "#servers", label: "Servers" },
+  { href: "#security", label: "Security" },
+  { href: "#demo", label: "Data" },
   { href: "#work", label: "Work" },
-  { href: "#sectors", label: "Who we build for" },
   { href: "#approach", label: "Approach" },
-  { href: "#demo", label: "Dashboard demo" },
 ];
 
 export default function Navbar() {

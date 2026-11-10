@@ -1,11 +1,11 @@
 const items = [
   {
-    title: "Start with the people who will use it",
-    text: "We talk to your customers and staff first, so the interface solves their problems, not just the ones in the brief.",
+    title: "Start with how your business works",
+    text: "We learn how your team and customers work first, so what we build fits your business, not just the brief.",
   },
   {
-    title: "Design before we build",
-    text: "You see and click through prototypes early, which is the cheapest time to change your mind.",
+    title: "Plan before we build",
+    text: "You see the plan first, whether it is a prototype or a network and domain layout, which is the cheapest time to change your mind.",
   },
   {
     title: "Build it secure and reliable",

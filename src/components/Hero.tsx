@@ -4,11 +4,12 @@ export default function Hero() {
   return (
     <section id="top" className="hero">
       <div className="container">
-        <h1>We design interfaces people understand, and the technology behind them.</h1>
+        <h1>Websites, servers, networks and data, built and run by one team.</h1>
         <div className="hero-row">
           <p className="hero-sub">
-            AERO is a UI/UX and web studio that also builds the networks,
-            servers and reports your business runs on.
+            AERO is a technology partner for growing businesses. We design
+            websites, set up servers and Active Directory, secure networks and
+            turn data into reports.
           </p>
           <div className="hero-actions">
             <a href="#contact" className="btn btn-primary">

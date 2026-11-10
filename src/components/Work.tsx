@@ -14,12 +14,12 @@ type Item = {
 
 const items: Item[] = [
   {
-    kind: "app",
-    tone: "blue",
-    service: "UI/UX design",
-    title: "Booking app interface",
-    before: "A booking process with too many steps, where customers gave up halfway.",
-    after: "A three-step flow, tested with real users before development started.",
+    kind: "rack",
+    tone: "light",
+    service: "Servers and Active Directory",
+    title: "Domain and user-account setup",
+    before: "Shared logins and files kept on individual computers, with no control over who could open what.",
+    after: "A Windows Server domain with an account for each person, security groups for access and Group Policy for the rules.",
   },
   {
     kind: "site",

@@ -12,32 +12,39 @@ type Slide = {
 
 const slides: Slide[] = [
   {
-    kind: "app",
-    stage: "blue",
-    tag: "UI/UX design",
-    title: "App interfaces people understand",
-    text: "Research, flows and screens tested with real users before development starts.",
-  },
-  {
     kind: "site",
     stage: "soft",
-    tag: "Web design",
-    title: "Websites that explain and convert",
-    text: "Responsive sites designed around what your visitors need to find.",
+    tag: "UI/UX & Web",
+    title: "Websites and interfaces people enjoy using",
+    text: "Responsive design, prototypes and business web interfaces.",
   },
   {
-    kind: "dash",
+    kind: "rack",
     stage: "light",
-    tag: "Data and reporting",
-    title: "Dashboards you can read at a glance",
-    text: "Clean data and clear charts that show what to do next.",
+    tag: "Servers & Active Directory",
+    title: "Servers and domains set up properly",
+    text: "Windows Server, Active Directory, users, groups and virtualization.",
   },
   {
     kind: "net",
     stage: "ink",
-    tag: "Network and security",
+    tag: "Network & Cybersecurity",
     title: "Networks built with security in",
     text: "Firewalls, VPNs and hardening, tested before you rely on them.",
+  },
+  {
+    kind: "dash",
+    stage: "light",
+    tag: "Data & Reporting",
+    title: "Analysis in R and Python",
+    text: "Clean data, clear reports and custom Python tools.",
+  },
+  {
+    kind: "tickets",
+    stage: "blue",
+    tag: "IT Consulting & Support",
+    title: "Advice and support when you need it",
+    text: "Hardware recommendations, troubleshooting and maintenance.",
   },
 ];
 

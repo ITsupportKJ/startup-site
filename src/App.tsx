@@ -2,6 +2,8 @@ import { lazy, Suspense } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Services from "./components/Services";
+import Infrastructure from "./components/Infrastructure";
+import Security from "./components/Security";
 import Work from "./components/Work";
 import Sectors from "./components/Sectors";
 import Approach from "./components/Approach";
@@ -22,14 +24,16 @@ export default function App() {
       <main>
         <Hero />
         <Services />
-        <Work />
-        <Sectors />
-        <Approach />
+        <Infrastructure />
+        <Security />
         <Suspense
           fallback={<section id="demo" className="section section-dark demo-fallback" />}
         >
           <DemoDashboard />
         </Suspense>
+        <Work />
+        <Sectors />
+        <Approach />
         <Contact />
       </main>
       <Footer />
