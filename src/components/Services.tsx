@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { services } from "../data/services";
 import Mock from "./Mock";
 
@@ -10,7 +11,7 @@ export default function Services() {
     <section id="services" className="section section-white">
       <div className="container">
         <div className="section-head">
-          <h2 className="display">Designed for Digital. Engineered for Reality.</h2>
+          <h2 className="display">Everything your business runs on, from one team.</h2>
           <p className="section-sub">
             Use one service or combine them. Everything fits together because
             the same team plans and builds it.
@@ -45,6 +46,9 @@ export default function Services() {
                 <li key={item}>{item}</li>
               ))}
             </ul>
+            <Link to={`/services/${s.slug}`} className="btn btn-dark svc-more">
+              View this service
+            </Link>
           </div>
         </div>
       </div>

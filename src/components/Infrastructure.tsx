@@ -174,14 +174,14 @@ export default function Infrastructure() {
   return (
     <section id="servers" className="section section-mist">
       <div className="container">
-        <div className="section-head">
+        {/* <div className="section-head">
           <h2 className="display">Servers and Active Directory, set up properly</h2>
           <p className="section-sub">
             We plan, build and secure the Windows Server and Active Directory
             environment your team signs in to every day: forests, domains,
             users, groups and policies.
           </p>
-        </div>
+        </div>  */}
 
         <div className="ad-grid">
           <div className="ad-tree">

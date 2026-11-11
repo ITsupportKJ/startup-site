@@ -133,66 +133,20 @@ const pos: Record<string, Point> = {
   ...Object.fromEntries(nodes.map((n) => [n.id, { x: n.x, y: n.y }])),
 };
 
-type Answer = "yes" | "no" | "unsure";
-
-const questions = [
-  {
-    topic: "Firewall",
-    q: "Is your firewall set up with rules for your business, not left on default settings?",
-    gap: "Default settings often leave unnecessary ports open. A rules review is usually a quick win.",
-  },
-  {
-    topic: "Remote access",
-    q: "Do remote staff connect through a VPN, instead of remote desktop being open to the internet?",
-    gap: "Exposed remote desktop is a common way in for attackers. A VPN closes that door.",
-  },
-  {
-    topic: "Network separation",
-    q: "Is your network split so guests and ordinary devices cannot reach your servers?",
-    gap: "On a flat network, one problem can spread everywhere. Separating guest, staff and server networks limits the damage.",
-  },
-  {
-    topic: "Accounts and admin rights",
-    q: "Does every person have their own account, with admin rights only for those who need them?",
-    gap: "Shared and over-powered accounts make mistakes and breaches harder to contain and trace.",
-  },
-  {
-    topic: "Updates",
-    q: "Are your servers and computers updated on a regular schedule?",
-    gap: "Unpatched systems are the easiest target. A patch plan keeps known holes closed.",
-  },
-  {
-    topic: "Backups",
-    q: "Do you have backups that have been tested and are kept separate from your main systems?",
-    gap: "A backup you have never restored may not work, and connected backups can be encrypted along with everything else in a ransomware attack.",
-  },
-];
-
-const options: { value: Answer; label: string }[] = [
-  { value: "yes", label: "Yes" },
-  { value: "no", label: "No" },
-  { value: "unsure", label: "Not sure" },
-];
-
 export default function Security() {
   const [active, setActive] = useState<NodeId>("firewall");
-  const [answers, setAnswers] = useState<Record<number, Answer>>({});
-  const [done, setDone] = useState(false);
-
   const current = nodes.find((n) => n.id === active) ?? nodes[0];
-  const answered = Object.keys(answers).length;
-  const gaps = questions.filter((_, i) => answers[i] !== "yes");
 
   return (
-    <section id="security" className="section section-white">
+    <section id="security" className="section section-mist">
       <div className="container">
-        <div className="section-head">
+        {/* <div className="section-head">
           <h2 className="display">Network and cybersecurity, designed in and tested</h2>
           <p className="section-sub">
             We design your network with security built in, then test it so you
             know where the gaps are. Explore a typical office network below.
           </p>
-        </div>
+        </div> */}
 
         <div className="ad-grid">
           <div className="sm">
@@ -270,98 +224,6 @@ export default function Security() {
               ))}
             </ul>
           </div>
-        </div>
-
-        <div className="chk">
-          <div className="chk-intro">
-            <h3>Quick security self-check</h3>
-            <p>
-              Six questions, about one minute. Your answers stay in your
-              browser and are not sent or saved.
-            </p>
-          </div>
-
-          {!done ? (
-            <div>
-              <ol className="chk-list">
-                {questions.map((item, i) => (
-                  <li key={item.topic}>
-                    <p className="chk-q">{item.q}</p>
-                    <div className="chk-opts" role="group" aria-label={`Question ${i + 1}`}>
-                      {options.map((o) => (
-                        <button
-                          key={o.value}
-                          type="button"
-                          aria-pressed={answers[i] === o.value}
-                          className={answers[i] === o.value ? "on" : ""}
-                          onClick={() => setAnswers({ ...answers, [i]: o.value })}
-                        >
-                          {o.label}
-                        </button>
-                      ))}
-                    </div>
-                  </li>
-                ))}
-              </ol>
-              <div className="chk-foot">
-                <span>
-                  {answered} of {questions.length} answered
-                </span>
-                <button
-                  type="button"
-                  className="btn btn-primary"
-                  disabled={answered < questions.length}
-                  onClick={() => setDone(true)}
-                >
-                  See my results
-                </button>
-              </div>
-            </div>
-          ) : (
-            <div className="chk-result" aria-live="polite">
-              <p className="chk-score">
-                <strong>{questions.length - gaps.length}</strong> of {questions.length} answered Yes
-              </p>
-              {gaps.length > 0 ? (
-                <>
-                  <p>Here is what we would look at first:</p>
-                  <ul className="chk-gaps">
-                    {gaps.map((g) => (
-                      <li key={g.topic}>
-                        <strong>{g.topic}</strong>
-                        <span>{g.gap}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              ) : (
-                <p>
-                  No obvious gaps from these six questions. A proper
-                  assessment still tests your actual configuration, which a
-                  self-check cannot do.
-                </p>
-              )}
-              <p className="chk-note">
-                This is a quick self-check, not a security assessment. A real
-                assessment tests your actual systems.
-              </p>
-              <div className="chk-actions">
-                <a href="#contact" className="btn btn-primary">
-                  Book a security assessment
-                </a>
-                <button
-                  type="button"
-                  className="btn btn-ghost"
-                  onClick={() => {
-                    setAnswers({});
-                    setDone(false);
-                  }}
-                >
-                  Start again
-                </button>
-              </div>
-            </div>
-          )}
         </div>
       </div>
     </section>

@@ -118,14 +118,14 @@ export default function DemoDashboard() {
   return (
     <section id="demo" className="section section-dark">
       <div className="container">
-        <div className="section-head">
+        {/* <div className="section-head">
           <h2 className="display">Your data, analysed with R and Python</h2>
           <p className="section-sub">
             We clean your data, analyse it in R or Python, and deliver the
             answers as a report, a dashboard or a custom Python application
             built for your business.
           </p>
-        </div>
+        </div> */}
 
         <ol className="data-flow">
           {steps.map((s, i) => (

@@ -1,40 +1,26 @@
-import { lazy, Suspense } from "react";
+import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import Services from "./components/Services";
-import Infrastructure from "./components/Infrastructure";
-import Security from "./components/Security";
-import Work from "./components/Work";
-import Sectors from "./components/Sectors";
-import Approach from "./components/Approach";
-import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
-
-// Charts are the heaviest part of the page, so load them separately.
-const DemoDashboard = lazy(() => import("./components/DemoDashboard"));
+import ScrollToHash from "./components/ScrollToHash";
+import Home from "./pages/Home";
+import ServicePage from "./pages/ServicePage";
+import NotFound from "./pages/NotFound";
 
 export default function App() {
   return (
     <>
-      <a className="skip-link" href="#services">
+      <a className="skip-link" href="#main">
         Skip to content
       </a>
       <Navbar />
-      <main>
-        <Hero />
-        <Services />
-        <Infrastructure />
-        <Security />
-        <Suspense
-          fallback={<section id="demo" className="section section-dark demo-fallback" />}
-        >
-          <DemoDashboard />
-        </Suspense>
-        <Work />
-        <Sectors />
-        <Approach />
-        <Contact />
+      <ScrollToHash />
+      <main id="main">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/services/:slug" element={<ServicePage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </main>
       <Footer />
       <WhatsAppButton />

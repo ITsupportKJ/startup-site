@@ -6,7 +6,7 @@ import { Icon } from "./Icons";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
-export default function Contact() {
+export default function Contact({ service }: { service?: string }) {
   const [status, setStatus] = useState<Status>("idle");
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -89,7 +89,7 @@ export default function Contact() {
           </div>
           <div className="field">
             <label htmlFor="c-service">What do you need help with?</label>
-            <select id="c-service" name="service" defaultValue="Not sure yet">
+            <select id="c-service" name="service" defaultValue={service ?? "Not sure yet"}>
               {services.map((s) => (
                 <option key={s.id} value={s.name}>
                   {s.name}

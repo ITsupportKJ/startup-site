@@ -5,6 +5,7 @@ export type Tone = "blue" | "soft" | "light" | "ink";
 
 export type Service = {
   id: ServiceId;
+  slug: string;
   name: string;
   mock: MockKind;
   tone: Tone;
@@ -15,6 +16,7 @@ export type Service = {
 export const services: Service[] = [
   {
     id: "web",
+    slug: "ui-ux-web-solutions",
     name: "UI/UX & Web Solutions",
     mock: "site",
     tone: "soft",
@@ -30,6 +32,7 @@ export const services: Service[] = [
   },
   {
     id: "infra",
+    slug: "it-infrastructure",
     name: "IT Infrastructure & Hardware",
     mock: "rack",
     tone: "light",
@@ -45,6 +48,7 @@ export const services: Service[] = [
   },
   {
     id: "security",
+    slug: "network-cybersecurity",
     name: "Network & Cybersecurity",
     mock: "net",
     tone: "ink",
@@ -60,11 +64,12 @@ export const services: Service[] = [
   },
   {
     id: "data",
+    slug: "data-analytics",
     name: "Data Analytics & Reporting",
     mock: "dash",
     tone: "light",
     summary:
-      "Messy spreadsheets turned into clean data and reports you can read at a glance.",
+      "Messy spreadsheets turned into clean data and reports you can read at a glance. We analyse in R and Python, and build custom Python applications around your data.",
     items: [
       "Excel analytics",
       "Data cleaning",
@@ -75,6 +80,7 @@ export const services: Service[] = [
   },
   {
     id: "support",
+    slug: "it-support",
     name: "IT Consulting & Support",
     mock: "tickets",
     tone: "blue",

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { services } from "../data/services";
 import { site } from "../config";
 
@@ -22,7 +23,7 @@ export default function Footer() {
           <ul>
             {services.map((s) => (
               <li key={s.id}>
-                <a href="#services">{s.name}</a>
+                <Link to={`/services/${s.slug}`}>{s.name}</Link>
               </li>
             ))}
           </ul>
